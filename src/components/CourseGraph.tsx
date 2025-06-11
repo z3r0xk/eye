@@ -212,18 +212,13 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
 };
 
 interface CourseGraphProps {
-  searchQuery?: string;
-  selectedCourseId?: string | null;
-  onCourseSelect?: (courseId: string | null) => void;
-  onInfoClick?: (courseId: string) => void;
+  courses: Course[];
+  selectedCourseId: string | null;
+  onCourseSelect: (courseId: string | null) => void;
+  searchQuery: string;
 }
 
-export default function CourseGraph({ 
-  searchQuery = '', 
-  selectedCourseId = null, 
-  onCourseSelect,
-  onInfoClick 
-}: CourseGraphProps) {
+export default function CourseGraph({ courses, selectedCourseId, onCourseSelect, searchQuery }: CourseGraphProps) {
   const params = useParams();
   const program = params?.program as string;
 
@@ -233,7 +228,7 @@ export default function CourseGraph({
   }, [program]);
   
   // Include courses that either have prerequisites or are used as prerequisites
-  const courses = useMemo(() => {
+  const coursesToUse = useMemo(() => {
     const prerequisiteIds = new Set<string>();
     allCourses.forEach(course => {
       course.prerequisites.forEach(prereqId => {
@@ -253,7 +248,7 @@ export default function CourseGraph({
     if (!searchQuery) return new Set<string>();
     const lowerQuery = searchQuery.toLowerCase();
     return new Set(
-      courses
+      coursesToUse
         .filter(
           (course) =>
             course.code.toLowerCase().includes(lowerQuery) ||
@@ -261,7 +256,7 @@ export default function CourseGraph({
         )
         .map(course => course.id)
     );
-  }, [courses, searchQuery]);
+  }, [coursesToUse, searchQuery]);
 
   // Update nodes and edges when selection changes
   const { nodes: initialNodes, edges: initialEdges } = useMemo(() => {
@@ -271,7 +266,7 @@ export default function CourseGraph({
       pathManager.reset();
     }
 
-    const nodes: Node[] = courses.map((course) => {
+    const nodes: Node[] = coursesToUse.map((course) => {
       const state = pathManager.getNodeState(course.id);
       const isHighlighted = !searchQuery || matchingCourseIds.has(course.id);
       return {
@@ -283,7 +278,7 @@ export default function CourseGraph({
           isInPath: state.pathType !== 'none',
           pathType: state.pathType,
           isHighlighted,
-          onInfoClick: () => onInfoClick?.(course.id)
+          onInfoClick: () => onCourseSelect?.(course.id)
         },
         position: { x: 0, y: 0 },
         style: {
@@ -293,7 +288,7 @@ export default function CourseGraph({
       };
     });
 
-    const edges: Edge[] = courses.flatMap((course) =>
+    const edges: Edge[] = coursesToUse.flatMap((course) =>
       course.prerequisites
         .filter((prereqId) => 
           // Include edges to prerequisites even if they're foundation courses
@@ -317,7 +312,7 @@ export default function CourseGraph({
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [courses, selectedCourseId, pathManager, allCourses, onInfoClick, searchQuery, matchingCourseIds]);
+  }, [coursesToUse, selectedCourseId, pathManager, allCourses, onCourseSelect, searchQuery, matchingCourseIds]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -376,7 +371,7 @@ export default function CourseGraph({
         <Panel position="bottom-center" className="bg-slate-800/80 backdrop-blur-sm p-2 rounded-t-lg border border-slate-700 shadow-xl">
           <div className="text-sm text-slate-300">
             {searchQuery && matchingCourseIds.size > 0 && `${matchingCourseIds.size} matching course${matchingCourseIds.size !== 1 ? 's' : ''} • `}
-            {courses.length} course{courses.length !== 1 ? 's' : ''} total
+            {coursesToUse.length} course{coursesToUse.length !== 1 ? 's' : ''} total
             {selectedCourseId && ` • ${pathManager.getHighlightedCount()} related courses`}
           </div>
         </Panel>

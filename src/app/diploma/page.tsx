@@ -14,56 +14,36 @@ export default function DiplomaPage() {
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(true);
   const courses = loadCourses();
 
-  // Filter courses with no prerequisites and match search query
-  const foundationCourses = courses
-    .filter(course => course.prerequisites.length === 0)
-    .filter(course => 
-      !searchQuery || 
-      course.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-  const selectedCourse = selectedCourseId ? courses.find(c => c.id === selectedCourseId) || null : null;
-
-  const handleCourseClick = useCallback((courseId: string | null) => {
+  const handleCourseSelect = useCallback((courseId: string | null) => {
     setSelectedCourseId(courseId);
+    setIsRightSidebarOpen(true);
   }, []);
 
-  const handleInfoClick = useCallback((courseId: string) => {
-    const isSameCourse = courseId === selectedCourseId;
-    
-    // If clicking info on the same course, just toggle the sidebar
-    if (isSameCourse) {
-      setIsRightSidebarOpen(!isRightSidebarOpen);
-    } else {
-      // If clicking info on a different course, select it and ensure sidebar is open
-      setSelectedCourseId(courseId);
-      setIsRightSidebarOpen(true);
-    }
-  }, [selectedCourseId, isRightSidebarOpen]);
-
   return (
-    <main className="h-screen flex flex-col bg-gradient-to-br from-gray-900 via-blue-950 to-gray-950">
-      <div className="flex-none px-6 py-4">
-        <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      </div>
-      <div className="flex-1 flex gap-6 px-6 pb-6 min-h-0 overflow-hidden">
+    <main className="flex min-h-screen flex-col bg-gray-950">
+      <Header
+        title="Diploma Course Prerequisites"
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
+      <div className="flex-1 flex gap-6 p-6">
         <LeftPanel
-          courses={foundationCourses}
+          courses={courses}
           isOpen={isLeftSidebarOpen}
           onClose={() => setIsLeftSidebarOpen(!isLeftSidebarOpen)}
-          onCourseSelect={handleCourseClick}
+          onCourseSelect={handleCourseSelect}
         />
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className="flex-1">
           <CourseGraph
-            searchQuery={searchQuery}
+            courses={courses}
             selectedCourseId={selectedCourseId}
-            onCourseSelect={handleCourseClick}
-            onInfoClick={handleInfoClick}
+            onCourseSelect={handleCourseSelect}
+            searchQuery={searchQuery}
           />
         </div>
         <RightPanel
-          course={selectedCourse}
+          courses={courses}
+          selectedCourseId={selectedCourseId}
           isOpen={isRightSidebarOpen}
           onClose={() => setIsRightSidebarOpen(false)}
         />
