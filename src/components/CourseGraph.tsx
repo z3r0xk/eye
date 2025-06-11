@@ -306,7 +306,7 @@ export default function CourseGraph({ searchQuery = '', selectedCourseId = null,
   }, [pathManager, setEdges, onCourseSelect]);
 
   return (
-    <div className="w-full h-[800px] bg-slate-900/50 rounded-lg overflow-hidden backdrop-blur-sm">
+    <div className="flex-1 h-full bg-slate-900/50 rounded-lg overflow-hidden backdrop-blur-sm">
       <ReactFlow
         nodes={nodes}
         edges={edges}

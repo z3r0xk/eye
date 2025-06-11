@@ -16,9 +16,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-4">
+    <main className="h-screen flex flex-col bg-gradient-to-b from-slate-900 to-slate-800">
+      <div className="flex-none p-4">
         <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      </div>
+      <div className="flex-1 flex gap-4 p-4 pt-0 min-h-0">
         <NoPrereqCourses
           courses={courses}
           searchQuery={searchQuery}
