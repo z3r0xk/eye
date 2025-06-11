@@ -10,9 +10,17 @@ import { loadCourses } from '@/utils/courseLoader';
 export default function DiplomaPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
   const courses = loadCourses();
+
+  // Filter courses with no prerequisites and match search query
+  const foundationCourses = courses
+    .filter(course => course.prerequisites.length === 0)
+    .filter(course => 
+      !searchQuery || 
+      course.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
   const selectedCourse = selectedCourseId ? courses.find(c => c.id === selectedCourseId) || null : null;
 
@@ -39,14 +47,12 @@ export default function DiplomaPage() {
         <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       </div>
       <div className="flex-1 flex gap-6 px-6 pb-6 min-h-0 overflow-hidden">
-        <NoPrereqCourses
-          courses={courses}
-          searchQuery={searchQuery}
-          onCourseClick={handleCourseClick}
-          onInfoClick={handleInfoClick}
-          isOpen={isSidebarOpen}
-          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        />
+        <div className="w-full max-w-4xl">
+          <NoPrereqCourses
+            courses={foundationCourses}
+            onCourseSelect={handleCourseClick}
+          />
+        </div>
         <div className="flex-1 flex flex-col min-w-0">
           <CourseGraph
             searchQuery={searchQuery}
