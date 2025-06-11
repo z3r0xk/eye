@@ -1,4 +1,4 @@
-import { useCallback, useState, useMemo } from 'react';
+import { useCallback, useState, useMemo, useEffect } from 'react';
 import ReactFlow, {
   Node,
   Edge,
@@ -12,9 +12,10 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Course } from '@/types/course';
-import { loadCourses } from '@/utils/courseLoader';
+import { loadCourses, loadBTechCourses } from '@/utils/courseLoader';
 import CourseNode from './CourseNode';
 import dagre from '@dagrejs/dagre';
+import { useParams } from 'next/navigation';
 
 const nodeTypes: NodeTypes = {
   courseNode: CourseNode,
@@ -90,10 +91,25 @@ class PathManager {
   isEdgeHighlighted(sourceId: string, targetId: string): boolean {
     const sourceState = this.nodeStates.get(sourceId);
     const targetState = this.nodeStates.get(targetId);
-    
+
     if (!sourceState || !targetState) return false;
 
-    // Edge is highlighted if both nodes are in the path
+    // Both nodes are prerequisites
+    if (sourceState.pathType === 'prerequisite' && targetState.pathType === 'prerequisite') {
+      return true;
+    }
+
+    // Both nodes are dependents
+    if (sourceState.pathType === 'dependent' && targetState.pathType === 'dependent') {
+      return true;
+    }
+
+    // Connection to selected node
+    if (targetId === this.selectedCourseId || sourceId === this.selectedCourseId) {
+      return true;
+    }
+
+    // Other edges in the path
     return sourceState.pathType !== 'none' && targetState.pathType !== 'none';
   }
 
@@ -208,7 +224,13 @@ export default function CourseGraph({
   onCourseSelect,
   onInfoClick 
 }: CourseGraphProps) {
-  const allCourses = useMemo(() => loadCourses(), []);
+  const params = useParams();
+  const program = params?.program as string;
+
+  // Load courses based on program
+  const allCourses = useMemo(() => {
+    return program === 'diploma' ? loadCourses() : loadBTechCourses();
+  }, [program]);
   
   // Include courses that either have prerequisites or are used as prerequisites
   const courses = useMemo(() => {
@@ -236,7 +258,14 @@ export default function CourseGraph({
     );
   }, [courses, searchQuery]);
 
+  // Update nodes and edges when selection changes
   const { nodes: initialNodes, edges: initialEdges } = useMemo(() => {
+    if (selectedCourseId) {
+      pathManager.selectCourse(selectedCourseId);
+    } else {
+      pathManager.reset();
+    }
+
     const nodes: Node[] = filteredCourses.map((course) => {
       const state = pathManager.getNodeState(course.id);
       return {
@@ -275,42 +304,21 @@ export default function CourseGraph({
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
+  // Update nodes and edges when they change
+  useEffect(() => {
+    setNodes(initialNodes);
+    setEdges(initialEdges);
+  }, [initialNodes, initialEdges, setNodes, setEdges]);
+
   const onNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
     event.stopPropagation();
     const newSelectedId = node.id === selectedCourseId ? null : node.id;
     onCourseSelect?.(newSelectedId);
-    
-    if (newSelectedId) {
-      pathManager.selectCourse(newSelectedId);
-    } else {
-      pathManager.reset();
-    }
-
-    setEdges((eds) =>
-      eds.map((ed) => ({
-        ...ed,
-        animated: pathManager.isEdgeHighlighted(ed.source, ed.target),
-        style: pathManager.getEdgeStyle(ed.source, ed.target),
-      }))
-    );
-  }, [pathManager, selectedCourseId, setEdges, onCourseSelect]);
+  }, [selectedCourseId, onCourseSelect]);
 
   const onPaneClick = useCallback(() => {
     onCourseSelect?.(null);
-    pathManager.reset();
-    
-    setEdges((eds) =>
-      eds.map((ed) => ({
-        ...ed,
-        animated: false,
-        style: {
-          stroke: '#cbd5e1',
-          strokeWidth: 1,
-          opacity: 1,
-        },
-      }))
-    );
-  }, [pathManager, setEdges, onCourseSelect]);
+  }, [onCourseSelect]);
 
   return (
     <div className="flex-1 h-full bg-slate-900/50 rounded-lg overflow-hidden backdrop-blur-sm">

@@ -1,132 +1,772 @@
 {
   "courses": [
     {
-      "id": "MATH301",
-      "code": "MATH301",
-      "name": "Advanced Engineering Mathematics",
+      "id": "gun1c1",
+      "code": "GUN 1C1",
+      "name": "English I",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 2,
+        "tutorial": 0,
         "lab": 0,
         "training": 0,
-        "totalContactHours": 4,
-        "studentWorkload": 9
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 5
       },
-      "prerequisites": ["MATH201"],
-      "description": "Advanced topics in engineering mathematics including complex analysis, Fourier series, and partial differential equations."
+      "prerequisites": [],
+      "description": "Basic English language course focusing on grammar, reading, and writing skills."
     },
     {
-      "id": "MATH201",
-      "code": "MATH201",
-      "name": "Linear Algebra",
+      "id": "gun2c1",
+      "code": "GUN 2C1",
+      "name": "English II",
       "hours": {
-        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 5
+      },
+      "prerequisites": ["gun1c1"],
+      "description": "Advanced English language course building on English I, focusing on academic writing and communication skills."
+    },
+    {
+      "id": "gun3c1",
+      "code": "GUN 3C1",
+      "name": "English III",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 5
+      },
+      "prerequisites": ["gun2c1"],
+      "description": "Advanced English language course focusing on professional communication and writing skills for technical fields."
+    },
+    {
+      "id": "gun3c2",
+      "code": "GUN 3C2",
+      "name": "Technical Report Writing",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 6
+      },
+      "prerequisites": ["gun2c1"],
+      "description": "Course on writing technical reports, emphasizing clarity, structure, and effective communication in professional settings."
+    },
+    {
+      "id": "gunuc1",
+      "code": "GUN UC1",
+      "name": "University Requirement (Compulsory)",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Core university requirement course focusing on essential academic skills."
+    },
+    {
+      "id": "gunuc2",
+      "code": "GUN UC2",
+      "name": "University Requirement (Compulsory) II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Advanced university requirement course building on UC1."
+    },
+    {
+      "id": "gunuc3",
+      "code": "GUN UC3",
+      "name": "University Requirement (Compulsory) III",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Core university requirement course focusing on advanced academic skills."
+    },
+    {
+      "id": "gunuc4",
+      "code": "GUN UC4",
+      "name": "University Requirement (Compulsory) IV",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Advanced university requirement course building on previous compulsory courses."
+    },
+    {
+      "id": "gunue1",
+      "code": "GUN UE1",
+      "name": "University Requirement (Elective) I",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "First elective course from university requirements."
+    },
+    {
+      "id": "gunue2",
+      "code": "GUN UE2",
+      "name": "University Requirement (Elective) II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Second elective course from university requirements."
+    },
+    {
+      "id": "gunue3",
+      "code": "GUN UE3",
+      "name": "University Requirement (Elective) III",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
+      "prerequisites": [],
+      "description": "Third elective course from university requirements."
+    },
+    {
+      "id": "gap112",
+      "code": "GAP 112",
+      "name": "Statistics & Probability",
+      "hours": {
         "lecture": 2,
         "tutorial": 2,
         "lab": 0,
         "training": 0,
         "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["gap114"],
+      "description": "Introduction to statistical concepts and probability theory with applications."
+    },
+    {
+      "id": "gap114",
+      "code": "GAP 114",
+      "name": "Mathematics",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
         "studentWorkload": 9
       },
       "prerequisites": [],
-      "description": "Vector spaces, linear transformations, eigenvalues, and applications to engineering problems."
+      "description": "Fundamental mathematical concepts and techniques required for technical studies."
     },
     {
-      "id": "CS331",
-      "code": "CS331",
-      "name": "Computer Architecture",
+      "id": "gap121",
+      "code": "GAP 121",
+      "name": "Physics",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
         "lab": 2,
         "training": 0,
-        "totalContactHours": 4,
+        "totalContactHours": 5,
+        "creditHours": 3,
         "studentWorkload": 9
       },
-      "prerequisites": ["CS213"],
-      "description": "Computer organization, processor design, memory hierarchy, and I/O systems."
+      "prerequisites": [],
+      "description": "Basic principles of physics with emphasis on mechanics and electromagnetism."
     },
     {
-      "id": "CS332",
-      "code": "CS332",
-      "name": "Advanced Operating Systems",
+      "id": "ect113",
+      "code": "ECT 113",
+      "name": "Information Technology",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
         "lab": 2,
         "training": 0,
-        "totalContactHours": 4,
-        "studentWorkload": 9
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
       },
-      "prerequisites": ["CS315", "CS331"],
-      "description": "Advanced operating system concepts including distributed systems, security, and virtualization."
+      "prerequisites": [],
+      "description": "This course prepares students for work in industry, in information processing and in business and computer-related field. Topics covered included covered knowledge of computer hardware and software, Business organization and information systems, coding in a high-level language, capabilities of generic software, and skills in verbal and written communication. Students will gain competencies such as Information Systems (IS) and their role in organizations, the need for organizations to update their information systems, the issues for implementing information systems in organizations, skills related to data capture, IS data verification and validation, the need for disaster recovery, the ICT related legislation in organizations, maximizing the advantages brought by IS, the role of a project manager in organizations, and the importance of codes of practice in organizations."
     },
     {
-      "id": "CS341",
-      "code": "CS341",
-      "name": "Software Engineering",
+      "id": "ect121",
+      "code": "ECT 121",
+      "name": "Computer Programming",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
         "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": [],
+      "description": "The course describes the basic concepts of programming using high level language. Topics include the fundamental rules and semantics of Programming in the used language, the rules (Syntax) and Meaning (Semantics) of Programming, design, and analysis of sizable program, and solving problems through programming. Upon successfully completing this course, the student will gain competences such as basic concepts in computer programming, design and analysis of C++ programming language and practice solving problems through programming."
+    },
+    {
+      "id": "ect122",
+      "code": "ECT 122",
+      "name": "Operating Systems",
+      "hours": {
+        "lecture": 1,
+        "tutorial": 0,
+        "lab": 3,
         "training": 0,
         "totalContactHours": 4,
-        "studentWorkload": 9
+        "creditHours": 2,
+        "studentWorkload": 6
       },
-      "prerequisites": ["CS214"],
-      "description": "Software development lifecycle, requirements engineering, design patterns, and project management."
+      "prerequisites": ["ect121"],
+      "description": "The operating system provides an established, convenient, and efficient interface between user programs and the hardware of the computer on which they run. This course examines the important problems in operating system design and implementation. Emphasis will be given to three major OS subsystems: process management (processes, threads, CPU scheduling, synchronization, and deadlock), memory management (segmentation, paging, swapping), and file systems; and operating system support for distributed systems."
     },
     {
-      "id": "CS351",
-      "code": "CS351",
-      "name": "Computer Networks",
+      "id": "ect123",
+      "code": "ECT 123",
+      "name": "Computer Programming II",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect121"],
+      "description": "This course is a continuation of ECT 121 Computer Programming I. It introduces the concepts in the design and implementation of computer programming using objected-oriented Language. Topics covered include Object-oriented software constructs, Inheritance and polymorphism, Abstract classes, interfaces, and multiple inheritance, Recursion, exceptions, and binary I/O, Threads, concurrency, and unit testing, and Applications of the programming Language. Students gain competencies such as the object-orient programming language and tools for debugging and testing, skill in implementing recursive solutions to problems, principles of analysing algorithm efficiency and perform analysis on basic algorithms, and the fundamental data structures in performing data types such as stacks, queues."
+    },
+    {
+      "id": "ect124",
+      "code": "ECT 124",
+      "name": "Modeling & Simulation",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect121"],
+      "description": "This course introduces the fundamentals and techniques for designing and using simulation, modelling, and optimization of systems. Is also introduces the performance modelling, business infrastructure modelling, and distributed and parallel computing. Topics covered includes basic simulation techniques, Discrete versus Continuous Modelling, Numerical Techniques, Converting to Parallel and Distributed Simulations, Probability and Statistics for Simulations and Analysis, and Simulating results analysis and viewing tools. Upon successfully competing this course, students will gain competences such as Analyze complex engineering systems and associated issues, Analyze Different modelling techniques, analyze different discipline areas to predict engineering activities, and analyze the simulation results of a medium sized engineering problems."
+    },
+    {
+      "id": "ect112",
+      "code": "ECT 112",
+      "name": "Software System Design",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect121"],
+      "description": "This course introduces the students to the concepts and skills of Software System Design. The course introduces a variety of new software used to analysts, designers to manage projects, analyze and document systems, design new systems and implement their plans. The course also introduces recent coverage of UML, wireless technologies and ERP, web-based systems for e-commerce and expanded coverage on RAD and GUI design. Upon successfully completing this course, the gain competences such as systems development, systems planning, data modelling, and the design and analysis of small and medium size systems."
+    },
+    {
+      "id": "ect231",
+      "code": "ECT 231",
+      "name": "Internet of Things (IoT)",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
         "lab": 2,
         "training": 0,
-        "totalContactHours": 4,
-        "studentWorkload": 9
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
       },
-      "prerequisites": ["CS315"],
-      "description": "Network protocols, architecture, security, and distributed applications."
+      "prerequisites": ["ect142"],
+      "description": "This course teaches students a solid understanding of IoT technologies. It teaches students IoT device programming, sensing, and actuating technologies, IoT protocol stacks, networking backhauls design and security enforcement, data science for IoT, and cloud based IoT platforms. It also teaches Devices: Arduino Programming, Software Analysis and Tooling, System Programming and OS Dependencies, and IoT Infrastructure."
     },
     {
-      "id": "CS421",
-      "code": "CS421",
+      "id": "ect141",
+      "code": "ECT 141",
+      "name": "Data Communication",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": [],
+      "description": "This course focuses on the concepts, principles, and terminology of data communication. Topics covered include analog and digital data transmission, transmission media, Modulation techniques. Data encoding, asynchronous and synchronous transmissions, USART, RS232-C, RS-449 standards. Data link configuration and control, error control, multiplexing and demultiplexing."
+    },
+    {
+      "id": "ect142",
+      "code": "ECT 142",
+      "name": "Computer Network",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect141"],
+      "description": "This course focuses on the concepts, principles and terminology of data networks and the Internet. Topics include Telecommunication concepts and practices, Basics of digital and analog data communications, basics of TCP/IP protocol, and the World Wide Web structure and operation."
+    },
+    {
+      "id": "ect241",
+      "code": "ECT 241",
+      "name": "Network Security",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect141"],
+      "description": "This course introduces the fundamentals of network and information security. The course covers security issues in different contexts like the standard PC, the network, and the Internet. Topics covered include the basics of encryption, firewalls concepts and practices, and the different types of viruses and worms and methods of their detection and destruction. Students will also learn Private and Public Key Cryptosystems, Security Administration Risk Management, and Social, Legal and Ethical Issues."
+    },
+    {
+      "id": "ect242",
+      "code": "ECT 242",
+      "name": "Computer Networks II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect142"],
+      "description": "This course focuses on the concepts, principles and terminology of computer networks and the Internet. Topics include Telecommunication concepts and practices, Basics of digital and analog data communications, basics of TCP/IP protocol, Network Layer (Introduction & Protocols), Network Layer (Multiple Access and Ethernet), Application Layer Standard Client-Server Protocols), Application Layer Management), and the World Wide Web structure and operation."
+    },
+    {
+      "id": "ect243",
+      "code": "ECT 243",
+      "name": "LAN Design",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect141"],
+      "description": "This course builds on ITM230 local area network (LAN) basics and reviews the current industry standard computer network technologies. Topics include the network communication process, network hardware and media, protocols and standards, and IP addressing. The course also covers Routing techniques for LANs, Metropolitan Area Networks (MAN) FDDI, DQDB, Slotted Ring, and Technology for LANs Physical media and controller design Performance of LANs."
+    },
+    {
+      "id": "ect251",
+      "code": "ECT 251",
+      "name": "Data Structures & Algorithms",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect121"],
+      "description": "This course introduces students to the subject of Data Structures and Algorithms. It starts by introducing the students to the Java language and moves on to cover the algorithmic area of types of data structures such as arrays, lists, stacks, queues, trees, graphs. It examines different tree traversal techniques such as depth-first, breadth-first, in order, preorder, and post order as well as different types of graph traversal. The tutorials are used for problem solving and the laboratory is used for the Java programming of actual hands-on experience of Practical applications. The course is essential for student to get acquainted with the design and analysis of algorithms and to practice programming of the basic data structures."
+    },
+    {
+      "id": "ect273",
+      "code": "ECT 273",
+      "name": "Embedded Systems I",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect274"],
+      "description": "This is the first course in embedded systems (ESs). The course introduces students to marvelous areas of ESs. Topics covered include area such as fundamentals of Embedded System, Design Metric of embedded system, Embedded Hardware and Design and Serial Communication, Embedded Software and Programming Concepts and Design, and Real time operating systems for ESs. Students will gain competencies such as knowledge and skill fundamental ESs design paradigms, Analysis of ESs, the functionality and properties of ESs embedded systems, theoretical knowledge in design, analysis, and implementation of ESs, testing, verification, validation, and simulation techniques of safe Ess, and the electronics of embedded Systems."
+    },
+    {
+      "id": "ect274",
+      "code": "ECT 274",
+      "name": "Logic Design",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect121"],
+      "description": "This course introduces students to the building block of a computer system. It is organized to develop engineering skills in the design and analysis of digital logics with applications to digital computer. Topics covered include logic gates and Boolean algebra, simplification of logic systems, combinational circuits, login blocks, and introduction to sequential circuits."
+    },
+    {
+      "id": "ect312",
+      "code": "ECT 312",
+      "name": "Multimedia & Web Development",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect123"],
+      "description": "This course covers the fundamentals of Web site development, the multimedia principles, and design using HTML, CSS and JavaScript. Students will learn how to create structured websites using HTML, how to use the most up to date CSS styles to create responsive, visually appealing pages and captivating designs, and how to implement client-side script using basic concepts in JavaScript to integrate interactivity and dynamic behaviour to web pages, and to validate web forms."
+    },
+    {
+      "id": "ect321",
+      "code": "ECT 321",
+      "name": "Full Stack Web Development",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect112"],
+      "description": "This course introduces the fundamental concepts of the design and implementation of building a fully stack web development. Topics covered include Basic Selectors and Text Styling and Web font, Animating Elements and Styling Tables, and dealing with cross, JavaScript and DOM Scripting, Object Python fundamentals, and Web Service. Upon finishing this course student will gain competencies such as and Development, skills, and knowledge necessary to become a web developed, skills to build HTMLS, CSS3, JavaScript, and ReactJS, skills in word development, build tools, and associated workflow standards, develop soft skills in a Learning atmosphere, and build a fully functional web application."
+    },
+    {
+      "id": "ect344",
+      "code": "ECT 344",
+      "name": "Computer Security Forensics I",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect241"],
+      "description": "This course teaches digital forensics and incident response to network-based evidence. This course will also acclimate the student to the basic tools and techniques of the trade. The course teaches foundational forensics and applies those concepts to a network environment. The course emphasizes digital forensic procedures, digital forensic tools, and legal issues relating to digital forensics in a network environment. The course uses advanced forensic tools and hands on exercises to emphasize the procedures that students will utilize in the field as forensic investigators."
+    },
+    {
+      "id": "ect361",
+      "code": "ECT 361",
       "name": "Artificial Intelligence",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
         "lab": 2,
         "training": 0,
-        "totalContactHours": 4,
-        "studentWorkload": 9
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
       },
-      "prerequisites": ["CS214", "MATH301"],
-      "description": "Problem solving, knowledge representation, machine learning, and neural networks."
+      "prerequisites": ["gap112"],
+      "description": "This course introduces student to the computing paradigm in Artificial Intelligence (AI). It allows him/her to work in all industry sectors and business domain with this exciting new technology. This way he/she can maximize the chance of successfully achieving a goal without having to be explicitly the human intervention. The course also teaches topics such as AI & Deep Learning, Machine Learning Concepts & Prediction Algorithms, Supervised, Unsupervised and Reinforcement Learning, Applied Statistics, Face Detection, and Motion Analysis and Object Tracking. Upon finishing this course student will gain competences such as Artificial Intelligence (AI) system designers, programming and implementing machine learning techniques, skills in designing and implementing supervised, unsupervised and reinforcement learning solutions, different technology tools to build the correct AI solution to solve a given task, and neural networks and conversational AI and deep learning techniques."
     },
     {
-      "id": "CS422",
-      "code": "CS422",
-      "name": "Machine Learning",
+      "id": "ect362",
+      "code": "ECT 362",
+      "name": "Computer Graphic & Visualization",
       "hours": {
-        "creditHours": 3,
         "lecture": 2,
-        "tutorial": 0,
+        "tutorial": 1,
         "lab": 2,
         "training": 0,
-        "totalContactHours": 4,
-        "studentWorkload": 9
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
       },
-      "prerequisites": ["CS421"],
-      "description": "Supervised and unsupervised learning, deep learning architectures, and practical applications."
+      "prerequisites": ["ect251"],
+      "description": "This course comprises of software and hardware techniques to create, store, modify, and represent pictures. It introduces students to the concepts of graphical representation on computers and teaches students the design of graphical user interfaces. Topics covered include Graphics hardware and Geometrical transformations, Design and implementation of graphical user interfaces, Computer graphics applications, Symmetrical Digital Differential Analysis (DDA), Curve plotting and objects transformations, and Picture segmentation and Graphics standards. Upon finishing this course students will gain competencies such as Implement graphics functions, various transformation & clipping algorithms, Implement Curved lines and surfaces, various rendering techniques, and evaluate various visualization methods."
+    },
+    {
+      "id": "ect372",
+      "code": "ECT 372",
+      "name": "Computer Design & Architecture",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect274"],
+      "description": "This course introduces the building block components of a computer system and their organization. Topics covered include Components of a computer, basic organization of a computer, forms of information and commands, execution control, transmission Information, microprocessors, control, functions of the controller, organization of the processor, the unit of arithmetic operations Logical, command execution, control memory, command execution, memory and data transfer systems, input systems and output, control and input signals, programmed input and output, two-way connection, hardware programmed, Memory Organization & Design and the principles of Pipelining."
+    },
+    {
+      "id": "ect373",
+      "code": "ECT 373",
+      "name": "Computer Maintenance",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect372"],
+      "description": "This course teaches candidates the skills of how to maintain computer systems. It covers the process of studying computer maintenance and prepares candidates for a career in the area of maintaining computer systems. Topics covered include Computer Input and Output devices, Motherboard and Buses, Processors Technology, Memory Technology, Storage Technology, Computer Assembly and Disassembly, Software installation, Troubleshooting, Computer User Support, Electronic Waste Management, and Emerging Trend in Computer Maintenance."
+    },
+    {
+      "id": "ect374",
+      "code": "ECT 374",
+      "name": "Human Computer Interactions",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect362"],
+      "description": "In this course, students are introduced to the fundamental theories and concepts of human computer interaction (HCI). HCI is an interdisciplinary field that integrates theories and methodologies across many domains including cognitive psychology, neurocognitive engineering, computer science, human factors, and engineering design. Topics covered include the human brain system versus the computer, The Human memory system, Computer input/output devices, Design rules and usability, Design evaluation: Expert analysis and user participation, Multimodal interfaces, Human audition and auditory displays, Smart phones, PDAs and HCI, and Virtual and augmented reality and Ubiquitous computing. Upon finishing this course students will gain competencies such as basic cognitive components of human learning system, practical experience in the fundamental aspects of designing and implementing user interfaces, range of general human-computer interaction issues, multimodal displays for conveying and presenting information, and knowledge of a variety of methods for designing and evaluating the quality of user interfaces, and spatial displays."
+    },
+    {
+      "id": "ect421",
+      "code": "ECT 421",
+      "name": "Distributed Programming",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 11
+      },
+      "prerequisites": ["ect123"],
+      "description": "This is a course that introduces students to issues related to Distributed Programming. Topics covered include Distributed System Models and Enabling Technologies, Parallel Programming Systems and Models Workflow Systems, Filesystems & Networked file systems, Optimization of Large Data Transfers, and Distributed Filesystems Techniques. Upon finishing this course students will gain competencies such as hardware and software issues in distributed systems, knowledge in distributed architecture, experience in synchronization, consistency and replication, fault tolerance, security, and distributed file systems, analysis of distributed systems, application of Shared Memory Techniques, knowledge about file access, and kills of Synchronization and Deadlock."
+    },
+    {
+      "id": "ect431",
+      "code": "ECT 431",
+      "name": "Security For IoT",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect231"],
+      "description": "This IoT Security course provides students with the fundamental concepts of the Internet of Things and in particular including security issues, use cases of cyberattacks involving the IoT, and common technologies and components related to the IoT. Upon the completion of the course, students will have a strong baseline understanding of the IoT devices and systems that need to be protected. They will gain competencies such as the security threat landscape and how to take preventive measures, the top security issues revolving around IoT, security development lifecycle of IoT products, security consideration regarding verticals of connected devices, the real-life examples and case studies in IoT security."
+    },
+    {
+      "id": "ect442",
+      "code": "ECT 442",
+      "name": "Computer Security Forensics II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect344"],
+      "description": "This course is designed as an advanced course in computer security forensics. The course focuses on advanced topics in system analysis, including advanced file system analysis, web, and email, as well as a comprehensive final case involving a moot court exercise. The course also teaches Investigative Process - Analysis Methodologies, FAT32 Filesystems, NTFS File Systems, Filesharing and Peer-to-Peer protocols, Executable File Analysis, Viruses, Rootkits and Rootkit Detection, Incident Response and Live Analysis, and Law Enforcement and Forensics. Upon finishing this course students will learn competencies such as the role of digital forensics in a variety of sectors, analytical thinking of digital forensics, software tools of a variety of digital forensics, digital investigation forensic techniques, and gain advanced understanding of criminal law."
+    },
+    {
+      "id": "ect461",
+      "code": "ECT 461",
+      "name": "Machine Learning & Applications",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": ["ect123"],
+      "description": "This is a course in Machine Learning techniques, algorithms, and tools. The topics include concepts, theory and Problems in machine learning, Neural Networks and Genetic Algorithms, types of Machine Learning, Machine Learning Algorithms, Machine Learning Programming Languages, Machine Learning Tools, Algorithms and Models of Evaluation of machine learning, Case Based Learning, K-Nearest Neighbor Learning, and Locally weighted Regression, Applications of Machine Learning, and Advanced Learning Techniques. Upon finishing this course student will learn competencies such as the basic theory underlying machine learning, Formulate machine learning problems, a range of machine learning algorithms, algorithms to solve problems of moderate complexity, Optimize the models of learned and report the expected accuracy achieved, structured thinking in unstructured problems, algorithmic topics of machine learning and mathematically deep enough to introduce the required theory, and Develop an appreciation for what is involved in learning from data."
+    },
+    {
+      "id": "ect191",
+      "code": "ECT 191",
+      "name": "Field Training I (Summer Year I)",
+      "hours": {
+        "lecture": 0,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 17,
+        "totalContactHours": 17,
+        "creditHours": 3,
+        "studentWorkload": 20
+      },
+      "prerequisites": [],
+      "description": "In the Information Technology program of study, the motive is to train students with sufficient skills and knowledge required to strengthen their fundamentals both practically and theoretically. This course introduces students to the necessary basic skills and knowledge in the process of learning. It includes basic techniques and methods of investigation in the field. It aims at making students well versed in applied fields of training in industry-related area. The course is meant for students with little teaching and skill in learning to become industry ready. The course equips students with complete functional knowledge of the development of computer and IT applications."
+    },
+    {
+      "id": "ect291",
+      "code": "ECT 291",
+      "name": "Diploma IT Project I",
+      "hours": {
+        "lecture": 1,
+        "tutorial": 1,
+        "lab": 3,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 12
+      },
+      "prerequisites": ["60_percent_diploma"],
+      "description": "The aim of the Diploma Information Technology project is to satisfy the first part of the 'practical' part of the Diploma degree. The student must show practical evidence of their ability to provide the knowledge and the skills worthwhile of obtaining practice experience in this first part of their field of study. This course contributes to the requirements for the Diploma Degree. It requires work done over a period of 30 hours over a period of 15 weeks. The Diploma IT project is conducted under the supervision of a project supervisor. There is a final project report to be submitted as part of your training program."
+    },
+    {
+      "id": "ect292",
+      "code": "ECT 292",
+      "name": "Diploma IT Project II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 4,
+        "training": 3,
+        "totalContactHours": 10,
+        "creditHours": 4,
+        "studentWorkload": 16
+      },
+      "prerequisites": ["ect291"],
+      "description": "The aim of the Diploma Information Technology project is to satisfy the second part of the 'practical' part of the Diploma degree. The student must show practical evidence of their ability to provide the knowledge and the skills worthwhile of obtaining practice experience in this second part of their field of study. This course contributes to the requirements for the Diploma Degree. It requires work done over a period of 30 hours over a period of 15 weeks. The Diploma IT project is conducted under the supervision of a project supervisor. There is a final project report to be submitted as part of your training program."
+    },
+    {
+      "id": "ect293",
+      "code": "ECT 293",
+      "name": "Field Training II (Summer Year 2)",
+      "hours": {
+        "lecture": 0,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 17,
+        "totalContactHours": 17,
+        "creditHours": 3,
+        "studentWorkload": 20
+      },
+      "prerequisites": [],
+      "description": "In the Information Technology program of study, the motive is to train students with sufficient skills and knowledge required to strengthen their fundamentals both practically and theoretically. This course is a follow up of the course ECT 191. It introduces students to the advanced skills and knowledge in the process of learning skills and knowledge. It includes advanced techniques and methods of investigation in the field. It aims at building the students’ experience in applied fields of industry-related area."
+    },
+    {
+      "id": "ect391",
+      "code": "ECT 391",
+      "name": "Field Training III (Summer Year 3)",
+      "hours": {
+        "lecture": 0,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 17,
+        "totalContactHours": 17,
+        "creditHours": 3,
+        "studentWorkload": 20
+      },
+      "prerequisites": [],
+      "description": "In the Information Technology programme of study, the motive is to train students with advanced skills and knowledge required to strengthen their fundamentals both practically and theoretically. The Information Technology industry is abundant with career opportunities. This course is the first training course on the level of B.Tech. It assumes that students have covered ECT 191 and ECT 293. The subjects covered in this course introduce students to understand the software and hardware and how they can be used to meet the demands of various aspects of the industry-relate aspects. Topics include Computer networks and architecture, electronic circuits and data structures, and algorithms are among the various topics covered in this course for an all-around proficiency in hardware and software and their-related fields. The student is introduced to the needed set of skills and gaining advanced knowledge and experience in building computer and IT systems."
+    },
+    {
+      "id": "ect491",
+      "code": "ECT 491",
+      "name": "Graduation IT Project I",
+      "hours": {
+        "lecture": 1,
+        "tutorial": 1,
+        "lab": 3,
+        "training": 3,
+        "totalContactHours": 8,
+        "creditHours": 3,
+        "studentWorkload": 12
+      },
+      "prerequisites": [],
+      "description": "The aim of the B.Tech Information Technology project is to satisfy the first part of the 'practical' part of the B.Tech degree. The student must show practical evidence of their ability to provide the knowledge and the skills worthwhile of obtaining practice experience in this first part of their field of study. This course meets the requirements for the B.Tech Degree. It requires work done over a period of 30 hours over a period of 15 weeks. The B.Tech IT project is conducted under the supervision of a project supervisor. There is a final project report to be submitted as part of your training program. The project is the final part of the work done and represents its practical part in a laboratory set setup or in the field. Final project allows you to gain professional skills and experience. For successful development of Final project, the student must possess practical knowledge, skills, professional and General professional competencies acquired because of mastering the first part of the Diploma certificate program. Work on the project involves the practical implementation of the necessary software as well as hardware for the laboratory setup and/or actual fieldwork."
+    },
+    {
+      "id": "ect492",
+      "code": "ECT 492",
+      "name": "Graduation IT Project II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 4,
+        "training": 3,
+        "totalContactHours": 10,
+        "creditHours": 4,
+        "studentWorkload": 16
+      },
+      "prerequisites": ["ect491"],
+      "description": "The aim of the B.Tech Information Technology project is to satisfy the second part of the 'practical' part of the B.Tech degree. The student must show practical evidence of their ability to provide the knowledge and the skills worthwhile of obtaining practice experience in this second part of their field of study. This course meets the requirements for the B.Tech Degree. It requires work done over a period of 30 hours over a period of 15 weeks. The B.Tech IT project is conducted under the supervision of a project supervisor. There is a final project report to be submitted as part of your training program. The project is the final part of the work done and represents its practical part in a laboratory set setup or in the field. Final project allows you to gain professional skills and experience. For successful development of final project, the student must possess practical knowledge, skills, professional and General professional competencies acquired because of mastering the first part of the Diploma certificate program. Work on the project involves the practical implementation of the necessary software as well as hardware for the laboratory setup and/or actual fieldwork."
     }
   ]
-} 
+}
