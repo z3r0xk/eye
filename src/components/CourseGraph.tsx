@@ -65,6 +65,7 @@ class PathManager {
     for (const prereqId of course.prerequisites) {
       if (!this.nodeStates.has(prereqId)) {
         this.nodeStates.set(prereqId, { pathType: 'prerequisite', level: 0 });
+        // Continue finding prerequisites even for foundation courses
         this.findPrerequisites(prereqId);
       }
     }
@@ -73,8 +74,11 @@ class PathManager {
   private findDependents(courseId: string) {
     for (const [id, course] of this.courseMap.entries()) {
       if (course.prerequisites.includes(courseId) && !this.nodeStates.has(id)) {
-        this.nodeStates.set(id, { pathType: 'dependent', level: 0 });
-        this.findDependents(id);
+        // Only mark dependents that have prerequisites (non-foundation courses)
+        if (course.prerequisites.length > 0) {
+          this.nodeStates.set(id, { pathType: 'dependent', level: 0 });
+          this.findDependents(id);
+        }
       }
     }
   }
@@ -193,12 +197,28 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
 
 interface CourseGraphProps {
   searchQuery?: string;
+  selectedCourseId?: string | null;
+  onCourseSelect?: (courseId: string | null) => void;
 }
 
-export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
-  const courses = useMemo(() => loadCourses(), []);
-  const [selectedNode, setSelectedNode] = useState<string | null>(null);
-  const pathManager = useMemo(() => new PathManager(courses), [courses]);
+export default function CourseGraph({ searchQuery = '', selectedCourseId = null, onCourseSelect }: CourseGraphProps) {
+  const allCourses = useMemo(() => loadCourses(), []);
+  
+  // Include courses that either have prerequisites or are used as prerequisites
+  const courses = useMemo(() => {
+    const prerequisiteIds = new Set<string>();
+    allCourses.forEach(course => {
+      course.prerequisites.forEach(prereqId => {
+        prerequisiteIds.add(prereqId);
+      });
+    });
+
+    return allCourses.filter(course => 
+      course.prerequisites.length > 0 || prerequisiteIds.has(course.id)
+    );
+  }, [allCourses]);
+  
+  const pathManager = useMemo(() => new PathManager(allCourses), [allCourses]);
 
   const filteredCourses = useMemo(() => {
     if (!searchQuery) return courses;
@@ -218,7 +238,7 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
         type: 'courseNode',
         data: {
           ...course,
-          selected: course.id === selectedNode,
+          selected: course.id === selectedCourseId,
           isInPath: state.pathType !== 'none',
           pathType: state.pathType,
         },
@@ -228,7 +248,10 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
 
     const edges: Edge[] = filteredCourses.flatMap((course) =>
       course.prerequisites
-        .filter((prereqId) => filteredCourses.some((c) => c.id === prereqId))
+        .filter((prereqId) => 
+          // Include edges to prerequisites even if they're foundation courses
+          allCourses.some((c) => c.id === prereqId)
+        )
         .map((prereqId) => ({
           id: `${prereqId}-${course.id}`,
           source: prereqId,
@@ -240,15 +263,15 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [filteredCourses, selectedNode, pathManager]);
+  }, [filteredCourses, selectedCourseId, pathManager, allCourses]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
     event.stopPropagation();
-    const newSelectedId = node.id === selectedNode ? null : node.id;
-    setSelectedNode(newSelectedId);
+    const newSelectedId = node.id === selectedCourseId ? null : node.id;
+    onCourseSelect?.(newSelectedId);
     
     if (newSelectedId) {
       pathManager.selectCourse(newSelectedId);
@@ -256,7 +279,6 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
       pathManager.reset();
     }
 
-    // Force a re-render of edges
     setEdges((eds) =>
       eds.map((ed) => ({
         ...ed,
@@ -264,13 +286,12 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
         style: pathManager.getEdgeStyle(ed.source, ed.target),
       }))
     );
-  }, [pathManager, selectedNode, setEdges]);
+  }, [pathManager, selectedCourseId, setEdges, onCourseSelect]);
 
   const onPaneClick = useCallback(() => {
-    setSelectedNode(null);
+    onCourseSelect?.(null);
     pathManager.reset();
     
-    // Reset edge styles
     setEdges((eds) =>
       eds.map((ed) => ({
         ...ed,
@@ -282,7 +303,7 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
         },
       }))
     );
-  }, [pathManager, setEdges]);
+  }, [pathManager, setEdges, onCourseSelect]);
 
   return (
     <div className="w-full h-[800px] bg-slate-900/50 rounded-lg overflow-hidden backdrop-blur-sm">
@@ -313,7 +334,7 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
               case 'dependent':
                 return '#8b5cf6'; // Violet
               default:
-                return node.id === selectedNode ? '#6366f1' : '#475569'; // Indigo : Slate
+                return node.id === selectedCourseId ? '#6366f1' : '#475569'; // Indigo : Slate
             }
           }}
           className="bg-slate-800/80 border-slate-700 shadow-xl"
@@ -322,7 +343,7 @@ export default function CourseGraph({ searchQuery = '' }: CourseGraphProps) {
         <Panel position="bottom-center" className="bg-slate-800/80 backdrop-blur-sm p-2 rounded-t-lg border border-slate-700 shadow-xl">
           <div className="text-sm text-slate-300">
             {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} shown
-            {selectedNode && ` • ${pathManager.getHighlightedCount()} related courses`}
+            {selectedCourseId && ` • ${pathManager.getHighlightedCount()} related courses`}
           </div>
         </Panel>
       </ReactFlow>
