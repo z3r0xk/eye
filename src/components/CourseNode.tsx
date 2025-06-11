@@ -8,6 +8,7 @@ interface ExtendedCourse extends Course {
   selected: boolean;
   isInPath: boolean;
   pathType: 'prerequisite' | 'dependent' | 'none';
+  isHighlighted: boolean;
   onInfoClick?: () => void;
 }
 
@@ -15,6 +16,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
   const [isHovered, setIsHovered] = useState(false);
 
   const getNodeStyle = () => {
+    if (!data.isHighlighted) return 'border-gray-700/50 bg-gray-800/30 shadow-gray-900/30';
     if (data.selected) return 'border-purple-500 bg-purple-900/50 shadow-purple-900/50';
     if (data.pathType === 'prerequisite') return 'border-indigo-500 bg-indigo-900/50 shadow-indigo-900/50';
     if (data.pathType === 'dependent') return 'border-blue-500 bg-blue-900/50 shadow-blue-900/50';
@@ -23,6 +25,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
   };
 
   const getIconStyle = () => {
+    if (!data.isHighlighted) return 'bg-gray-800/30 text-gray-400/50';
     if (data.selected) return 'bg-purple-900/50 text-purple-300 group-hover:bg-purple-800/60 group-hover:text-purple-200';
     if (data.pathType === 'prerequisite') return 'bg-indigo-900/50 text-indigo-300 group-hover:bg-indigo-800/60 group-hover:text-indigo-200';
     if (data.pathType === 'dependent') return 'bg-blue-900/50 text-blue-300 group-hover:bg-blue-800/60 group-hover:text-blue-200';
@@ -30,6 +33,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
   };
 
   const getHandleStyle = () => {
+    if (!data.isHighlighted) return '!bg-gray-600/30';
     if (data.selected) return '!bg-purple-500 group-hover:!bg-purple-400';
     if (data.pathType === 'prerequisite') return '!bg-indigo-500 group-hover:!bg-indigo-400';
     if (data.pathType === 'dependent') return '!bg-blue-500 group-hover:!bg-blue-400';
@@ -37,6 +41,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
   };
 
   const getBadgeStyle = () => {
+    if (!data.isHighlighted) return 'bg-gray-800/30 text-gray-400/50';
     if (data.selected) return 'bg-purple-900/50 text-purple-300 group-hover:bg-purple-800/60 group-hover:text-purple-200';
     if (data.pathType === 'prerequisite') return 'bg-indigo-900/50 text-indigo-300 group-hover:bg-indigo-800/60 group-hover:text-indigo-200';
     if (data.pathType === 'dependent') return 'bg-blue-900/50 text-blue-300 group-hover:bg-blue-800/60 group-hover:text-blue-200';
@@ -58,7 +63,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
         type="target"
         position={Position.Top}
         className={`w-16 transition-all duration-200 ease-in-out ${getHandleStyle()} ${
-          data.selected || isHovered ? '!h-1.5' : '!h-1'
+          (data.selected || isHovered) && data.isHighlighted ? '!h-1.5' : '!h-1'
         }`}
       />
       
@@ -67,7 +72,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
           <div className={`p-1.5 rounded-lg transition-all duration-200 ease-in-out ${getIconStyle()}`}>
             <AcademicCapIcon className="w-5 h-5" />
           </div>
-          <div className="text-sm font-medium text-white">{data.code}</div>
+          <div className={`text-sm font-medium ${data.isHighlighted ? 'text-white' : 'text-gray-400/70'}`}>{data.code}</div>
         </div>
         <div className="flex items-center gap-2">
           <div className={`flex items-center gap-1 px-2 py-1 rounded-full transition-all duration-200 ease-in-out ${getBadgeStyle()}`}>
@@ -78,7 +83,9 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
         </div>
       </div>
       
-      <div className="mt-2 text-sm font-medium text-gray-200 group-hover:text-white transition-colors duration-200">{data.name}</div>
+      <div className={`mt-2 text-sm font-medium transition-colors duration-200 ${
+        data.isHighlighted ? 'text-gray-200 group-hover:text-white' : 'text-gray-400/70'
+      }`}>{data.name}</div>
       
       {data.prerequisites.length > 0 && (
         <div className={`mt-3 flex items-center gap-1.5 text-xs transition-all duration-200 ease-in-out ${getBadgeStyle()}`}>
@@ -91,7 +98,7 @@ export default function CourseNode({ data }: NodeProps<ExtendedCourse>) {
         type="source"
         position={Position.Bottom}
         className={`w-16 transition-all duration-200 ease-in-out ${getHandleStyle()} ${
-          data.selected || isHovered ? '!h-1.5' : '!h-1'
+          (data.selected || isHovered) && data.isHighlighted ? '!h-1.5' : '!h-1'
         }`}
       />
     </div>

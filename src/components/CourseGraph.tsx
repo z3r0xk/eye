@@ -248,13 +248,18 @@ export default function CourseGraph({
   
   const pathManager = useMemo(() => new PathManager(allCourses), [allCourses]);
 
-  const filteredCourses = useMemo(() => {
-    if (!searchQuery) return courses;
+  // Get matching courses for search highlighting
+  const matchingCourseIds = useMemo(() => {
+    if (!searchQuery) return new Set<string>();
     const lowerQuery = searchQuery.toLowerCase();
-    return courses.filter(
-      (course) =>
-        course.code.toLowerCase().includes(lowerQuery) ||
-        course.name.toLowerCase().includes(lowerQuery)
+    return new Set(
+      courses
+        .filter(
+          (course) =>
+            course.code.toLowerCase().includes(lowerQuery) ||
+            course.name.toLowerCase().includes(lowerQuery)
+        )
+        .map(course => course.id)
     );
   }, [courses, searchQuery]);
 
@@ -266,8 +271,9 @@ export default function CourseGraph({
       pathManager.reset();
     }
 
-    const nodes: Node[] = filteredCourses.map((course) => {
+    const nodes: Node[] = courses.map((course) => {
       const state = pathManager.getNodeState(course.id);
+      const isHighlighted = !searchQuery || matchingCourseIds.has(course.id);
       return {
         id: course.id,
         type: 'courseNode',
@@ -276,30 +282,42 @@ export default function CourseGraph({
           selected: course.id === selectedCourseId,
           isInPath: state.pathType !== 'none',
           pathType: state.pathType,
+          isHighlighted,
           onInfoClick: () => onInfoClick?.(course.id)
         },
         position: { x: 0, y: 0 },
+        style: {
+          opacity: isHighlighted ? 1 : 0.3,
+          transition: 'opacity 0.2s ease-in-out',
+        },
       };
     });
 
-    const edges: Edge[] = filteredCourses.flatMap((course) =>
+    const edges: Edge[] = courses.flatMap((course) =>
       course.prerequisites
         .filter((prereqId) => 
           // Include edges to prerequisites even if they're foundation courses
           allCourses.some((c) => c.id === prereqId)
         )
-        .map((prereqId) => ({
-          id: `${prereqId}-${course.id}`,
-          source: prereqId,
-          target: course.id,
-          type: 'smoothstep',
-          animated: pathManager.isEdgeHighlighted(prereqId, course.id),
-          style: pathManager.getEdgeStyle(prereqId, course.id),
-        }))
+        .map((prereqId) => {
+          const isHighlighted = !searchQuery || (matchingCourseIds.has(prereqId) && matchingCourseIds.has(course.id));
+          return {
+            id: `${prereqId}-${course.id}`,
+            source: prereqId,
+            target: course.id,
+            type: 'smoothstep',
+            animated: pathManager.isEdgeHighlighted(prereqId, course.id),
+            style: {
+              ...pathManager.getEdgeStyle(prereqId, course.id),
+              opacity: isHighlighted ? 1 : 0.1,
+              transition: 'opacity 0.2s ease-in-out',
+            },
+          };
+        })
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [filteredCourses, selectedCourseId, pathManager, allCourses, onInfoClick]);
+  }, [courses, selectedCourseId, pathManager, allCourses, onInfoClick, searchQuery, matchingCourseIds]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -357,7 +375,8 @@ export default function CourseGraph({
         />
         <Panel position="bottom-center" className="bg-slate-800/80 backdrop-blur-sm p-2 rounded-t-lg border border-slate-700 shadow-xl">
           <div className="text-sm text-slate-300">
-            {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} shown
+            {searchQuery && matchingCourseIds.size > 0 && `${matchingCourseIds.size} matching course${matchingCourseIds.size !== 1 ? 's' : ''} • `}
+            {courses.length} course{courses.length !== 1 ? 's' : ''} total
             {selectedCourseId && ` • ${pathManager.getHighlightedCount()} related courses`}
           </div>
         </Panel>
