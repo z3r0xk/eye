@@ -199,9 +199,15 @@ interface CourseGraphProps {
   searchQuery?: string;
   selectedCourseId?: string | null;
   onCourseSelect?: (courseId: string | null) => void;
+  onInfoClick?: (courseId: string) => void;
 }
 
-export default function CourseGraph({ searchQuery = '', selectedCourseId = null, onCourseSelect }: CourseGraphProps) {
+export default function CourseGraph({ 
+  searchQuery = '', 
+  selectedCourseId = null, 
+  onCourseSelect,
+  onInfoClick 
+}: CourseGraphProps) {
   const allCourses = useMemo(() => loadCourses(), []);
   
   // Include courses that either have prerequisites or are used as prerequisites
@@ -241,6 +247,7 @@ export default function CourseGraph({ searchQuery = '', selectedCourseId = null,
           selected: course.id === selectedCourseId,
           isInPath: state.pathType !== 'none',
           pathType: state.pathType,
+          onInfoClick: () => onInfoClick?.(course.id)
         },
         position: { x: 0, y: 0 },
       };
@@ -263,7 +270,7 @@ export default function CourseGraph({ searchQuery = '', selectedCourseId = null,
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [filteredCourses, selectedCourseId, pathManager, allCourses]);
+  }, [filteredCourses, selectedCourseId, pathManager, allCourses, onInfoClick]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);

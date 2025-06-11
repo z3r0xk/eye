@@ -1,9 +1,20 @@
+export interface CourseHours {
+  lecture: number;
+  tutorial: number;
+  lab: number;
+  training: number;
+  totalContactHours: number;
+  creditHours: number;
+  studentWorkload: number;
+}
+
 export interface Course {
   id: string;
   code: string;
   name: string;
   prerequisites: string[];
-  creditHours: number;
+  hours: CourseHours;
+  description: string;
 }
 
 export interface CourseData {

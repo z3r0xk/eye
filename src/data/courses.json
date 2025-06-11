@@ -1,179 +1,468 @@
 {
   "courses": [
     {
+      "id": "CS101",
+      "code": "CS101",
+      "name": "Introduction to Programming",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 8
+      },
+      "prerequisites": [],
+      "description": "An introductory course to computer programming using Python. Topics include basic programming concepts, data types, control structures, functions, and basic algorithms."
+    },
+    {
+      "id": "CS201",
+      "code": "CS201",
+      "name": "Data Structures",
+      "hours": {
+        "lecture": 3,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 6,
+        "creditHours": 4,
+        "studentWorkload": 10
+      },
+      "prerequisites": ["CS101"],
+      "description": "Study of fundamental data structures and their implementations. Topics include arrays, linked lists, stacks, queues, trees, and basic searching and sorting algorithms."
+    },
+    {
+      "id": "MATH101",
+      "code": "MATH101",
+      "name": "Calculus I",
+      "hours": {
+        "lecture": 3,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 9
+      },
+      "prerequisites": [],
+      "description": "Introduction to differential and integral calculus of functions of one variable. Topics include limits, continuity, derivatives, applications of derivatives, and basic integration techniques."
+    },
+    {
+      "id": "CS301",
+      "code": "CS301",
+      "name": "Database Systems",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 3,
+        "training": 0,
+        "totalContactHours": 6,
+        "creditHours": 3,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS201"],
+      "description": "Introduction to database management systems. Topics include ER modeling, relational model, SQL, database design, normalization, and transaction management."
+    },
+    {
       "id": "gun1c1",
       "code": "GUN 1C1",
       "name": "English I",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": [],
-      "creditHours": 2
+      "description": "Basic English language course focusing on grammar, reading, and writing skills."
     },
     {
       "id": "gun2c1",
       "code": "GUN 2C1",
       "name": "English II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": ["gun1c1"],
-      "creditHours": 2
+      "description": "Advanced English language course building on English I, focusing on academic writing and communication skills."
     },
     {
       "id": "gunuc1",
       "code": "GUN UC1",
       "name": "University Requirement (Compulsory)",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": [],
-      "creditHours": 2
+      "description": "Core university requirement course focusing on essential academic skills."
     },
     {
       "id": "gunuc2",
       "code": "GUN UC2",
       "name": "University Requirement (Compulsory) II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": [],
-      "creditHours": 2
+      "description": "Advanced university requirement course building on UC1."
     },
     {
       "id": "gunue1",
       "code": "GUN UE1",
       "name": "University Requirement (Elective) I",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": [],
-      "creditHours": 2
+      "description": "First elective course from university requirements."
     },
     {
       "id": "gunue2",
       "code": "GUN UE2",
       "name": "University Requirement (Elective) II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 2,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": [],
-      "creditHours": 2
+      "description": "Second elective course from university requirements."
     },
     {
       "id": "gap112",
       "code": "GAP 112",
       "name": "Statistics & Probability",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["gap114"],
-      "creditHours": 3
+      "description": "Introduction to statistical concepts and probability theory with applications."
     },
     {
       "id": "gap114",
       "code": "GAP 114",
       "name": "Mathematics",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": [],
-      "creditHours": 3
+      "description": "Fundamental mathematical concepts and techniques required for technical studies."
     },
     {
       "id": "gap121",
       "code": "GAP 121",
       "name": "Physics",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 7
+      },
       "prerequisites": [],
-      "creditHours": 3
+      "description": "Basic principles of physics with emphasis on mechanics and electromagnetism."
     },
     {
       "id": "ect113",
       "code": "ECT 113",
       "name": "Information Technology",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": [],
-      "creditHours": 3
+      "description": "Introduction to information technology concepts and applications."
     },
     {
       "id": "ect121",
       "code": "ECT 121",
       "name": "Computer Programming",
-      "prerequisites": ["gap114"],
-      "creditHours": 3
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
+      "prerequisites": [],
+      "description": "Introduction to computer programming concepts and problem-solving techniques."
     },
     {
       "id": "ect122",
       "code": "ECT 122",
       "name": "Operating Systems",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 1,
+        "training": 0,
+        "totalContactHours": 3,
+        "creditHours": 2,
+        "studentWorkload": 4
+      },
       "prerequisites": ["ect121"],
-      "creditHours": 2
-    },
-    {
-      "id": "ect231",
-      "code": "ECT 231",
-      "name": "Internet of Things (IOT)",
-      "prerequisites": ["ect142"],
-      "creditHours": 3
+      "description": "Fundamentals of operating systems including process management, memory management, and file systems."
     },
     {
       "id": "ect141",
       "code": "ECT 141",
       "name": "Data Communication",
-      "prerequisites": ["gap121"],
-      "creditHours": 3
+      "hours": {
+        "lecture": 2,
+        "tutorial": 1,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 7
+      },
+      "prerequisites": [],
+      "description": "Fundamentals of data communications and networking concepts."
     },
     {
       "id": "ect142",
       "code": "ECT 142",
       "name": "Computer Network",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect141"],
-      "creditHours": 3
+      "description": "Computer network architectures, protocols, and applications."
+    },
+    {
+      "id": "ect231",
+      "code": "ECT 231",
+      "name": "Internet of Things (IOT)",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
+      "prerequisites": ["ect142"],
+      "description": "Introduction to IoT concepts, architectures, and applications."
     },
     {
       "id": "ect241",
       "code": "ECT 241",
       "name": "Network Security",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect141"],
-      "creditHours": 3
+      "description": "Network security concepts, threats, and protection mechanisms."
     },
     {
       "id": "ect242",
       "code": "ECT 242",
       "name": "Computer Networks II",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect142"],
-      "creditHours": 3
+      "description": "Advanced topics in computer networks including routing, switching, and network management."
     },
     {
       "id": "ect243",
       "code": "ECT 243",
       "name": "LAN Design",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect141"],
-      "creditHours": 3
+      "description": "Local Area Network design principles and implementation techniques."
     },
     {
       "id": "ect274",
       "code": "ECT 274",
       "name": "Logic Design",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect121"],
-      "creditHours": 3
+      "description": "Digital logic design concepts including combinational and sequential circuits."
     },
     {
       "id": "ect372",
       "code": "ECT 372",
       "name": "Computer Design & Architecture",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect274"],
-      "creditHours": 3
+      "description": "Computer organization and architecture, including processor design, memory hierarchy, and I/O systems."
     },
     {
       "id": "ect373",
       "code": "ECT 373",
       "name": "Computer Maintenance",
+      "hours": {
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["ect372"],
-      "creditHours": 3
+      "description": "Hardware and software maintenance techniques for computer systems."
     },
     {
       "id": "ect191",
       "code": "ECT 191",
       "name": "Field Training I (Summer Year I)",
+      "hours": {
+        "lecture": 0,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 6,
+        "totalContactHours": 6,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": [],
-      "creditHours": 3
+      "description": "First summer training experience in industry or relevant professional setting."
     },
     {
       "id": "ect291",
       "code": "ECT 291",
       "name": "Diploma IT Project",
+      "hours": {
+        "lecture": 1,
+        "tutorial": 0,
+        "lab": 4,
+        "training": 0,
+        "totalContactHours": 5,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": ["completion_first_year"],
-      "creditHours": 3
+      "description": "First part of the diploma project focusing on IT solution design and implementation."
     },
     {
       "id": "ect292",
       "code": "ECT 292",
       "name": "Diploma IT Project II",
+      "hours": {
+        "lecture": 1,
+        "tutorial": 0,
+        "lab": 6,
+        "training": 0,
+        "totalContactHours": 7,
+        "creditHours": 4,
+        "studentWorkload": 8
+      },
       "prerequisites": ["ect291"],
-      "creditHours": 4
+      "description": "Second part of the diploma project focusing on advanced implementation and testing."
     },
     {
       "id": "ect293",
       "code": "ECT 293",
       "name": "Field Training II (Summer Year 2)",
+      "hours": {
+        "lecture": 0,
+        "tutorial": 0,
+        "lab": 0,
+        "training": 6,
+        "totalContactHours": 6,
+        "creditHours": 3,
+        "studentWorkload": 6
+      },
       "prerequisites": [],
-      "creditHours": 3
+      "description": "Second summer training experience building on Field Training I."
     }
   ]
 }
