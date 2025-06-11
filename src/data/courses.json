@@ -15,184 +15,163 @@
       "creditHours": 2
     },
     {
-      "id": "gun3c1",
-      "code": "GUN 3C1",
-      "name": "English III",
-      "prerequisites": ["gun2c1"],
-      "creditHours": 2
-    },
-    {
-      "id": "gun3c2",
-      "code": "GUN 3C2",
-      "name": "Technical Report Writing",
-      "prerequisites": ["gun2c1"],
-      "creditHours": 2
-    },
-    {
-      "id": "gth111",
-      "code": "GTH 111",
-      "name": "Arabic Language",
+      "id": "gunuc1",
+      "code": "GUN UC1",
+      "name": "University Requirement (Compulsory)",
       "prerequisites": [],
       "creditHours": 2
     },
     {
-      "id": "gth121",
-      "code": "GTH 121",
-      "name": "Business Writing I",
-      "prerequisites": ["gun1c1"],
+      "id": "gunuc2",
+      "code": "GUN UC2",
+      "name": "University Requirement (Compulsory) II",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gunue1",
+      "code": "GUN UE1",
+      "name": "University Requirement (Elective) I",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gunue2",
+      "code": "GUN UE2",
+      "name": "University Requirement (Elective) II",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gap112",
+      "code": "GAP 112",
+      "name": "Statistics & Probability",
+      "prerequisites": ["gap114"],
       "creditHours": 3
     },
     {
-      "id": "gth122",
-      "code": "GTH 122",
-      "name": "Public Speaking & Presentation Skills",
-      "prerequisites": ["gun2c1"],
-      "creditHours": 2
-    },
-    {
-      "id": "gth131",
-      "code": "GTH 131",
-      "name": "German Language",
+      "id": "gap114",
+      "code": "GAP 114",
+      "name": "Mathematics",
       "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth141",
-      "code": "GTH 141",
-      "name": "The Character of Egypt",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth142",
-      "code": "GTH 142",
-      "name": "History of Engineering & Technology",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth143",
-      "code": "GTH 143",
-      "name": "History of Art & Architecture",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth144",
-      "code": "GTH 144",
-      "name": "History of Civilization",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth145",
-      "code": "GTH 145",
-      "name": "Contemporary Artistic Trends",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth146",
-      "code": "GTH 146",
-      "name": "Climate Change & Sustainability",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth151",
-      "code": "GTH 151",
-      "name": "Principles of Law, Human Rights, & Ethics",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth161",
-      "code": "GTH 161",
-      "name": "Scientific Research & Critical Thinking",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth162",
-      "code": "GTH 162",
-      "name": "Innovation & Entrepreneurship",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth171",
-      "code": "GTH 171",
-      "name": "French Language",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth181",
-      "code": "GTH 181",
-      "name": "Spanish Language",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth221",
-      "code": "GTH 221",
-      "name": "Business Writing II",
-      "prerequisites": ["gth121"],
       "creditHours": 3
     },
     {
-      "id": "gth223",
-      "code": "GTH 223",
-      "name": "English For Sports Management (Seminar)",
-      "prerequisites": ["gun1c1"],
+      "id": "gap121",
+      "code": "GAP 121",
+      "name": "Physics",
+      "prerequisites": [],
+      "creditHours": 3
+    },
+    {
+      "id": "ect113",
+      "code": "ECT 113",
+      "name": "Information Technology",
+      "prerequisites": [],
+      "creditHours": 3
+    },
+    {
+      "id": "ect121",
+      "code": "ECT 121",
+      "name": "Computer Programming",
+      "prerequisites": ["gap114"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect122",
+      "code": "ECT 122",
+      "name": "Operating Systems",
+      "prerequisites": ["ect121"],
+      "creditHours": 2
+    },
+    {
+      "id": "ect231",
+      "code": "ECT 231",
+      "name": "Internet of Things (IOT)",
+      "prerequisites": ["ect142"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect141",
+      "code": "ECT 141",
+      "name": "Data Communication",
+      "prerequisites": ["gap121"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect142",
+      "code": "ECT 142",
+      "name": "Computer Network",
+      "prerequisites": ["ect141"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect241",
+      "code": "ECT 241",
+      "name": "Network Security",
+      "prerequisites": ["ect141"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect242",
+      "code": "ECT 242",
+      "name": "Computer Networks II",
+      "prerequisites": ["ect142"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect243",
+      "code": "ECT 243",
+      "name": "LAN Design",
+      "prerequisites": ["ect141"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect274",
+      "code": "ECT 274",
+      "name": "Logic Design",
+      "prerequisites": ["ect121"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect372",
+      "code": "ECT 372",
+      "name": "Computer Design & Architecture",
+      "prerequisites": ["ect274"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect373",
+      "code": "ECT 373",
+      "name": "Computer Maintenance",
+      "prerequisites": ["ect372"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect191",
+      "code": "ECT 191",
+      "name": "Field Training I (Summer Year I)",
+      "prerequisites": [],
+      "creditHours": 3
+    },
+    {
+      "id": "ect291",
+      "code": "ECT 291",
+      "name": "Diploma IT Project",
+      "prerequisites": ["completion_first_year"],
+      "creditHours": 3
+    },
+    {
+      "id": "ect292",
+      "code": "ECT 292",
+      "name": "Diploma IT Project II",
+      "prerequisites": ["ect291"],
       "creditHours": 4
     },
     {
-      "id": "gth321",
-      "code": "GTH 321",
-      "name": "Business Writing III",
-      "prerequisites": ["gth221"],
-      "creditHours": 3
-    },
-    {
-      "id": "gth322",
-      "code": "GTH 322",
-      "name": "Functional English Communication",
-      "prerequisites": ["gth321"],
-      "creditHours": 3
-    },
-    {
-      "id": "gth351",
-      "code": "GTH 351",
-      "name": "Hospitality Law & Tourism Legislation",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth451",
-      "code": "GTH 451",
-      "name": "Risk Management",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth452",
-      "code": "GTH 452",
-      "name": "Law & Business Ethics",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth453",
-      "code": "GTH 453",
-      "name": "Law in Sports & Media",
-      "prerequisites": [],
-      "creditHours": 2
-    },
-    {
-      "id": "gth461",
-      "code": "GTH 461",
-      "name": "Research & Academic Writing",
+      "id": "ect293",
+      "code": "ECT 293",
+      "name": "Field Training II (Summer Year 2)",
       "prerequisites": [],
       "creditHours": 3
     }
