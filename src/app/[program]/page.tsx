@@ -1,11 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 import CourseGraph from '@/components/CourseGraph';
+import { loadCourses, loadBTechCourses } from '@/utils/courseLoader';
+import { Course } from '@/types/course';
 
 export default function ProgramPage() {
+  const params = useParams();
+  const program = params?.program as string;
+  const [courses, setCourses] = useState<Course[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadProgramCourses = async () => {
+      const courseData = program === 'btech' ? await loadBTechCourses() : await loadCourses();
+      setCourses(courseData);
+    };
+    loadProgramCourses();
+  }, [program]);
 
   // Handle course selection
   const handleCourseSelect = (courseId: string | null) => {
@@ -31,6 +45,7 @@ export default function ProgramPage() {
 
       <div className="w-full h-[calc(100vh-12rem)] mt-8">
         <CourseGraph
+          courses={courses}
           searchQuery={searchQuery}
           selectedCourseId={selectedCourseId}
           onCourseSelect={handleCourseSelect}

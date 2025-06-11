@@ -3,6 +3,8 @@ import { ChevronRightIcon, AcademicCapIcon, MagnifyingGlassIcon, BookOpenIcon } 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+type FilterType = 'all' | 'general' | 'core';
+
 interface LeftPanelProps {
   courses: Course[];
   isOpen: boolean;
@@ -12,7 +14,7 @@ interface LeftPanelProps {
 
 export default function LeftPanel({ courses, isOpen, onClose, onCourseSelect }: LeftPanelProps) {
   const [localSearch, setLocalSearch] = useState('');
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'general' | 'core'>('all');
+  const [selectedFilter, setSelectedFilter] = useState<FilterType>('all');
 
   const filteredCourses = courses.filter(course => {
     const matchesSearch = !localSearch || 
@@ -106,7 +108,7 @@ export default function LeftPanel({ courses, isOpen, onClose, onCourseSelect }: 
               key={id}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedFilter(id as any)}
+              onClick={() => setSelectedFilter(id as FilterType)}
               className={`px-2 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
                 selectedFilter === id
                   ? `bg-${color}-900/50 text-${color}-300 border border-${color}-700/50 shadow-sm shadow-${color}-900/20`

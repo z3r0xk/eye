@@ -1,5 +1,3 @@
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-
 interface HeaderProps {
   title: string;
   searchQuery: string;

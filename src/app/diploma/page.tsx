@@ -1,23 +1,36 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import CourseGraph from '@/components/CourseGraph';
-import Header from '@/components/Header';
-import RightPanel from '@/components/RightPanel';
-import LeftPanel from '@/components/LeftPanel';
+import { useState, useEffect } from 'react';
+import { Course } from '@/types/course';
 import { loadCourses } from '@/utils/courseLoader';
+import CourseGraph from '@/components/CourseGraph';
+import LeftPanel from '@/components/LeftPanel';
+import RightPanel from '@/components/RightPanel';
+import Header from '@/components/Header';
 
 export default function DiplomaPage() {
+  const [courses, setCourses] = useState<Course[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
-  const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
-  const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(true);
-  const courses = loadCourses();
+  const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true);
+  const [isRightPanelOpen, setIsRightPanelOpen] = useState(true);
 
-  const handleCourseSelect = useCallback((courseId: string | null) => {
-    setSelectedCourseId(courseId);
-    setIsRightSidebarOpen(true);
+  useEffect(() => {
+    const loadProgramCourses = async () => {
+      const courseData = await loadCourses();
+      setCourses(courseData);
+    };
+    loadProgramCourses();
   }, []);
+
+  const handleCourseSelect = (courseId: string | null) => {
+    setSelectedCourseId(courseId);
+  };
+
+  const handleInfoClick = (courseId: string) => {
+    setSelectedCourseId(courseId);
+    setIsRightPanelOpen(true);
+  };
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-950">
@@ -29,8 +42,8 @@ export default function DiplomaPage() {
       <div className="flex-1 flex gap-6 p-6">
         <LeftPanel
           courses={courses}
-          isOpen={isLeftSidebarOpen}
-          onClose={() => setIsLeftSidebarOpen(!isLeftSidebarOpen)}
+          isOpen={isLeftPanelOpen}
+          onClose={() => setIsLeftPanelOpen(!isLeftPanelOpen)}
           onCourseSelect={handleCourseSelect}
         />
         <div className="flex-1">
@@ -38,14 +51,15 @@ export default function DiplomaPage() {
             courses={courses}
             selectedCourseId={selectedCourseId}
             onCourseSelect={handleCourseSelect}
+            onInfoClick={handleInfoClick}
             searchQuery={searchQuery}
           />
         </div>
         <RightPanel
           courses={courses}
           selectedCourseId={selectedCourseId}
-          isOpen={isRightSidebarOpen}
-          onClose={() => setIsRightSidebarOpen(false)}
+          isOpen={isRightPanelOpen}
+          onClose={() => setIsRightPanelOpen(!isRightPanelOpen)}
         />
       </div>
     </main>

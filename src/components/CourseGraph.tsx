@@ -215,10 +215,11 @@ interface CourseGraphProps {
   courses: Course[];
   selectedCourseId: string | null;
   onCourseSelect: (courseId: string | null) => void;
+  onInfoClick: (courseId: string) => void;
   searchQuery: string;
 }
 
-export default function CourseGraph({ courses, selectedCourseId, onCourseSelect, searchQuery }: CourseGraphProps) {
+export default function CourseGraph({ courses, selectedCourseId, onCourseSelect, onInfoClick, searchQuery }: CourseGraphProps) {
   const params = useParams();
   const program = params?.program as string;
 
@@ -230,27 +231,27 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
   // Include courses that either have prerequisites or are used as prerequisites
   const coursesToUse = useMemo(() => {
     const prerequisiteIds = new Set<string>();
-    allCourses.forEach(course => {
+    courses.forEach(course => {
       course.prerequisites.forEach(prereqId => {
         prerequisiteIds.add(prereqId);
       });
     });
 
-    return allCourses.filter(course => 
+    return courses.filter(course => 
       course.prerequisites.length > 0 || prerequisiteIds.has(course.id)
     );
-  }, [allCourses]);
+  }, [courses]);
   
   const pathManager = useMemo(() => new PathManager(allCourses), [allCourses]);
 
-  // Get matching courses for search highlighting
+  // Filter matching courses based on search query
   const matchingCourseIds = useMemo(() => {
-    if (!searchQuery) return new Set<string>();
     const lowerQuery = searchQuery.toLowerCase();
     return new Set(
       coursesToUse
         .filter(
           (course) =>
+            !searchQuery ||
             course.code.toLowerCase().includes(lowerQuery) ||
             course.name.toLowerCase().includes(lowerQuery)
         )
@@ -278,7 +279,7 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
           isInPath: state.pathType !== 'none',
           pathType: state.pathType,
           isHighlighted,
-          onInfoClick: () => onCourseSelect?.(course.id)
+          onInfoClick: () => onInfoClick(course.id)
         },
         position: { x: 0, y: 0 },
         style: {
@@ -312,7 +313,7 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [coursesToUse, selectedCourseId, pathManager, allCourses, onCourseSelect, searchQuery, matchingCourseIds]);
+  }, [coursesToUse, selectedCourseId, pathManager, allCourses, onInfoClick, searchQuery, matchingCourseIds]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
