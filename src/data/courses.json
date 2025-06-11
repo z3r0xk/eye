@@ -1,0 +1,200 @@
+{
+  "courses": [
+    {
+      "id": "gun1c1",
+      "code": "GUN 1C1",
+      "name": "English I",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gun2c1",
+      "code": "GUN 2C1",
+      "name": "English II",
+      "prerequisites": ["gun1c1"],
+      "creditHours": 2
+    },
+    {
+      "id": "gun3c1",
+      "code": "GUN 3C1",
+      "name": "English III",
+      "prerequisites": ["gun2c1"],
+      "creditHours": 2
+    },
+    {
+      "id": "gun3c2",
+      "code": "GUN 3C2",
+      "name": "Technical Report Writing",
+      "prerequisites": ["gun2c1"],
+      "creditHours": 2
+    },
+    {
+      "id": "gth111",
+      "code": "GTH 111",
+      "name": "Arabic Language",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth121",
+      "code": "GTH 121",
+      "name": "Business Writing I",
+      "prerequisites": ["gun1c1"],
+      "creditHours": 3
+    },
+    {
+      "id": "gth122",
+      "code": "GTH 122",
+      "name": "Public Speaking & Presentation Skills",
+      "prerequisites": ["gun2c1"],
+      "creditHours": 2
+    },
+    {
+      "id": "gth131",
+      "code": "GTH 131",
+      "name": "German Language",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth141",
+      "code": "GTH 141",
+      "name": "The Character of Egypt",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth142",
+      "code": "GTH 142",
+      "name": "History of Engineering & Technology",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth143",
+      "code": "GTH 143",
+      "name": "History of Art & Architecture",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth144",
+      "code": "GTH 144",
+      "name": "History of Civilization",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth145",
+      "code": "GTH 145",
+      "name": "Contemporary Artistic Trends",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth146",
+      "code": "GTH 146",
+      "name": "Climate Change & Sustainability",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth151",
+      "code": "GTH 151",
+      "name": "Principles of Law, Human Rights, & Ethics",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth161",
+      "code": "GTH 161",
+      "name": "Scientific Research & Critical Thinking",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth162",
+      "code": "GTH 162",
+      "name": "Innovation & Entrepreneurship",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth171",
+      "code": "GTH 171",
+      "name": "French Language",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth181",
+      "code": "GTH 181",
+      "name": "Spanish Language",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth221",
+      "code": "GTH 221",
+      "name": "Business Writing II",
+      "prerequisites": ["gth121"],
+      "creditHours": 3
+    },
+    {
+      "id": "gth223",
+      "code": "GTH 223",
+      "name": "English For Sports Management (Seminar)",
+      "prerequisites": ["gun1c1"],
+      "creditHours": 4
+    },
+    {
+      "id": "gth321",
+      "code": "GTH 321",
+      "name": "Business Writing III",
+      "prerequisites": ["gth221"],
+      "creditHours": 3
+    },
+    {
+      "id": "gth322",
+      "code": "GTH 322",
+      "name": "Functional English Communication",
+      "prerequisites": ["gth321"],
+      "creditHours": 3
+    },
+    {
+      "id": "gth351",
+      "code": "GTH 351",
+      "name": "Hospitality Law & Tourism Legislation",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth451",
+      "code": "GTH 451",
+      "name": "Risk Management",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth452",
+      "code": "GTH 452",
+      "name": "Law & Business Ethics",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth453",
+      "code": "GTH 453",
+      "name": "Law in Sports & Media",
+      "prerequisites": [],
+      "creditHours": 2
+    },
+    {
+      "id": "gth461",
+      "code": "GTH 461",
+      "name": "Research & Academic Writing",
+      "prerequisites": [],
+      "creditHours": 3
+    }
+  ]
+}
