@@ -5,21 +5,48 @@ const diplomaCourses: Course[] = [
     id: 'math101',
     code: 'MATH101',
     name: 'Basic Mathematics',
-    hours: { creditHours: 3, lectureHours: 3, labHours: 0 },
+    description: 'Fundamental mathematical concepts and problem-solving techniques.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 0,
+      training: 0,
+      totalContactHours: 3,
+      creditHours: 3,
+      studentWorkload: 9
+    },
     prerequisites: [],
   },
   {
     id: 'cs101',
     code: 'CS101',
     name: 'Introduction to Programming',
-    hours: { creditHours: 4, lectureHours: 3, labHours: 2 },
+    description: 'Basic programming concepts using a high-level programming language.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 2,
+      training: 0,
+      totalContactHours: 5,
+      creditHours: 4,
+      studentWorkload: 12
+    },
     prerequisites: ['math101'],
   },
   {
     id: 'cs102',
     code: 'CS102',
     name: 'Data Structures',
-    hours: { creditHours: 4, lectureHours: 3, labHours: 2 },
+    description: 'Fundamental data structures and their implementation in programming.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 2,
+      training: 0,
+      totalContactHours: 5,
+      creditHours: 4,
+      studentWorkload: 12
+    },
     prerequisites: ['cs101'],
   },
 ];
@@ -29,21 +56,48 @@ const btechCourses: Course[] = [
     id: 'math201',
     code: 'MATH201',
     name: 'Advanced Mathematics',
-    hours: { creditHours: 3, lectureHours: 3, labHours: 0 },
+    description: 'Advanced mathematical concepts for engineering applications.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 0,
+      training: 0,
+      totalContactHours: 3,
+      creditHours: 3,
+      studentWorkload: 9
+    },
     prerequisites: [],
   },
   {
     id: 'cs201',
     code: 'CS201',
     name: 'Object-Oriented Programming',
-    hours: { creditHours: 4, lectureHours: 3, labHours: 2 },
+    description: 'Object-oriented programming concepts and design patterns.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 2,
+      training: 0,
+      totalContactHours: 5,
+      creditHours: 4,
+      studentWorkload: 12
+    },
     prerequisites: ['math201'],
   },
   {
     id: 'cs202',
     code: 'CS202',
     name: 'Algorithms',
-    hours: { creditHours: 4, lectureHours: 3, labHours: 2 },
+    description: 'Design and analysis of algorithms and computational complexity.',
+    hours: {
+      lecture: 3,
+      tutorial: 0,
+      lab: 2,
+      training: 0,
+      totalContactHours: 5,
+      creditHours: 4,
+      studentWorkload: 12
+    },
     prerequisites: ['cs201'],
   },
 ];
