@@ -1,19 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import CourseGraph from '@/components/CourseGraph';
-import { Course } from '@/types/course';
-import { loadCourses, loadBTechCourses } from '@/utils/courseLoader';
 
 export default function ProgramPage({ params }: { params: { program: string } }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
-
-  // Load courses based on program
-  const courses = useMemo(() => {
-    const programCourses = params.program === 'diploma' ? loadCourses() : loadBTechCourses();
-    return programCourses || []; // Ensure we always return an array
-  }, [params.program]);
 
   // Handle course selection
   const handleCourseSelect = (courseId: string | null) => {
