@@ -39,4 +39,3 @@ export default function NoPrereqCourses({ courses, onCourseSelect }: NoPrereqCou
     </div>
   );
 } 
-} 
