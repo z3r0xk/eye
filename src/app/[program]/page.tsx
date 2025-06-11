@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import CourseGraph from '@/components/CourseGraph';
 
-export default function ProgramPage({ params }: { params: { program: string } }) {
+export default function ProgramPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
 

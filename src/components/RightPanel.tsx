@@ -1,5 +1,5 @@
 import { Course } from '@/types/course';
-import { XMarkIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
 interface RightPanelProps {
   course: Course | null;
