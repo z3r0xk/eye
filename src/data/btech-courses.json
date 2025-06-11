@@ -1,0 +1,132 @@
+{
+  "courses": [
+    {
+      "id": "MATH301",
+      "code": "MATH301",
+      "name": "Advanced Engineering Mathematics",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["MATH201"],
+      "description": "Advanced topics in engineering mathematics including complex analysis, Fourier series, and partial differential equations."
+    },
+    {
+      "id": "MATH201",
+      "code": "MATH201",
+      "name": "Linear Algebra",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": [],
+      "description": "Vector spaces, linear transformations, eigenvalues, and applications to engineering problems."
+    },
+    {
+      "id": "CS331",
+      "code": "CS331",
+      "name": "Computer Architecture",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS213"],
+      "description": "Computer organization, processor design, memory hierarchy, and I/O systems."
+    },
+    {
+      "id": "CS332",
+      "code": "CS332",
+      "name": "Advanced Operating Systems",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS315", "CS331"],
+      "description": "Advanced operating system concepts including distributed systems, security, and virtualization."
+    },
+    {
+      "id": "CS341",
+      "code": "CS341",
+      "name": "Software Engineering",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS214"],
+      "description": "Software development lifecycle, requirements engineering, design patterns, and project management."
+    },
+    {
+      "id": "CS351",
+      "code": "CS351",
+      "name": "Computer Networks",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS315"],
+      "description": "Network protocols, architecture, security, and distributed applications."
+    },
+    {
+      "id": "CS421",
+      "code": "CS421",
+      "name": "Artificial Intelligence",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS214", "MATH301"],
+      "description": "Problem solving, knowledge representation, machine learning, and neural networks."
+    },
+    {
+      "id": "CS422",
+      "code": "CS422",
+      "name": "Machine Learning",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS421"],
+      "description": "Supervised and unsupervised learning, deep learning architectures, and practical applications."
+    }
+  ]
+} 

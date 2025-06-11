@@ -1,0 +1,132 @@
+{
+  "courses": [
+    {
+      "id": "CS111",
+      "code": "CS111",
+      "name": "Computer Programming",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": [],
+      "description": "Introduction to computer programming using Python. Covers basic syntax, data types, control structures, functions, and basic algorithms."
+    },
+    {
+      "id": "CS112",
+      "code": "CS112",
+      "name": "Object-Oriented Programming",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS111"],
+      "description": "Object-oriented programming concepts using Java. Covers classes, objects, inheritance, polymorphism, and basic data structures."
+    },
+    {
+      "id": "MATH101",
+      "code": "MATH101",
+      "name": "Mathematics I",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": [],
+      "description": "Basic calculus and algebra concepts including functions, limits, derivatives, and integrals."
+    },
+    {
+      "id": "MATH102",
+      "code": "MATH102",
+      "name": "Mathematics II",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["MATH101"],
+      "description": "Advanced calculus topics including multiple integrals, series, and differential equations."
+    },
+    {
+      "id": "CS213",
+      "code": "CS213",
+      "name": "Data Structures",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS112"],
+      "description": "Implementation and analysis of fundamental data structures including arrays, linked lists, stacks, queues, and trees."
+    },
+    {
+      "id": "CS214",
+      "code": "CS214",
+      "name": "Algorithms",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 2,
+        "lab": 0,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS213", "MATH102"],
+      "description": "Design and analysis of algorithms. Covers sorting, searching, graph algorithms, and algorithmic strategies."
+    },
+    {
+      "id": "CS221",
+      "code": "CS221",
+      "name": "Database Systems",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS112"],
+      "description": "Database design, SQL, normalization, and basic database management concepts."
+    },
+    {
+      "id": "CS315",
+      "code": "CS315",
+      "name": "Operating Systems",
+      "hours": {
+        "creditHours": 3,
+        "lecture": 2,
+        "tutorial": 0,
+        "lab": 2,
+        "training": 0,
+        "totalContactHours": 4,
+        "studentWorkload": 9
+      },
+      "prerequisites": ["CS213"],
+      "description": "Operating system concepts including process management, memory management, and file systems."
+    }
+  ]
+} 

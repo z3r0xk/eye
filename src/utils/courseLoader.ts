@@ -1,10 +1,11 @@
 import { Course } from '@/types/course';
-import coursesData from '@/data/courses.json';
+import diplomaCourses from '@/data/diploma-courses.json';
+import btechCourses from '@/data/btech-courses.json';
 
-interface CoursesData {
-  courses: Course[];
-}
+export const loadCourses = (): Course[] => {
+  return diplomaCourses.courses;
+};
 
-export function loadCourses(): Course[] {
-  return (coursesData as CoursesData).courses;
-} 
+export const loadBTechCourses = (): Course[] => {
+  return btechCourses.courses;
+}; 
