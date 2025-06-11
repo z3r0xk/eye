@@ -3,14 +3,15 @@
 import { useState, useCallback } from 'react';
 import CourseGraph from '@/components/CourseGraph';
 import Header from '@/components/Header';
-import NoPrereqCourses from '@/components/NoPrereqCourses';
 import RightPanel from '@/components/RightPanel';
+import LeftPanel from '@/components/LeftPanel';
 import { loadBTechCourses } from '@/utils/courseLoader';
 
 export default function BTechPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
+  const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(true);
   const courses = loadBTechCourses();
 
   // Filter courses with no prerequisites and match search query
@@ -47,12 +48,12 @@ export default function BTechPage() {
         <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       </div>
       <div className="flex-1 flex gap-6 px-6 pb-6 min-h-0 overflow-hidden">
-        <div className="w-full max-w-4xl">
-          <NoPrereqCourses
-            courses={foundationCourses}
-            onCourseSelect={handleCourseClick}
-          />
-        </div>
+        <LeftPanel
+          courses={foundationCourses}
+          isOpen={isLeftSidebarOpen}
+          onClose={() => setIsLeftSidebarOpen(!isLeftSidebarOpen)}
+          onCourseSelect={handleCourseClick}
+        />
         <div className="flex-1 flex flex-col min-w-0">
           <CourseGraph
             searchQuery={searchQuery}
