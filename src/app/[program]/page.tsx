@@ -12,7 +12,6 @@ export default function ProgramPage() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
-  const [isRightPanelOpen, setIsRightPanelOpen] = useState(false);
 
   useEffect(() => {
     const loadProgramCourses = async () => {
@@ -30,7 +29,6 @@ export default function ProgramPage() {
   // Handle course info click
   const handleInfoClick = (courseId: string) => {
     setSelectedCourseId(courseId);
-    setIsRightPanelOpen(true);
   };
 
   return (

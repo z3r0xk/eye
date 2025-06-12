@@ -12,10 +12,8 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Course } from '@/types/course';
-import { loadCourses, loadBTechCourses } from '@/utils/courseLoader';
 import CourseNode from './CourseNode';
 import dagre from '@dagrejs/dagre';
-import { useParams } from 'next/navigation';
 
 const nodeTypes: NodeTypes = {
   courseNode: CourseNode,
@@ -220,14 +218,6 @@ interface CourseGraphProps {
 }
 
 export default function CourseGraph({ courses, selectedCourseId, onCourseSelect, onInfoClick, searchQuery }: CourseGraphProps) {
-  const params = useParams();
-  const program = params?.program as string;
-
-  // Load courses based on program
-  const allCourses = useMemo(() => {
-    return program === 'diploma' ? loadCourses() : loadBTechCourses();
-  }, [program]);
-  
   // Include courses that either have prerequisites or are used as prerequisites
   const coursesToUse = useMemo(() => {
     const prerequisiteIds = new Set<string>();
@@ -313,7 +303,7 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
     );
 
     return getLayoutedElements(nodes, edges);
-  }, [coursesToUse, selectedCourseId, pathManager, allCourses, onInfoClick, searchQuery, matchingCourseIds]);
+  }, [coursesToUse, selectedCourseId, pathManager, courses, onInfoClick, searchQuery, matchingCourseIds]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
