@@ -242,7 +242,7 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
     );
   }, [courses]);
   
-  const pathManager = useMemo(() => new PathManager(allCourses), [allCourses]);
+  const pathManager = useMemo(() => new PathManager(courses), [courses]);
 
   // Filter matching courses based on search query
   const matchingCourseIds = useMemo(() => {
@@ -293,7 +293,7 @@ export default function CourseGraph({ courses, selectedCourseId, onCourseSelect,
       course.prerequisites
         .filter((prereqId) => 
           // Include edges to prerequisites even if they're foundation courses
-          allCourses.some((c) => c.id === prereqId)
+          courses.some((c) => c.id === prereqId)
         )
         .map((prereqId) => {
           const isHighlighted = !searchQuery || (matchingCourseIds.has(prereqId) && matchingCourseIds.has(course.id));
