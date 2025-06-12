@@ -173,7 +173,7 @@
         "creditHours": 3,
         "studentWorkload": 11
       },
-      "prerequisites": ["gap114"],
+      "prerequisites": [],
       "description": "The course describes the basic concepts of programming using high level language. Topics include the fundamental rules and semantics of Programming in the used language, the rules (Syntax) and Meaning (Semantics) of Programming, design, and analysis of sizable program, and solving problems through programming. Upon successfully completing this course, the student will gain competences such as basic concepts in computer programming, design and analysis of C++ programming language and practice solving problems through programming."
     },
     {
@@ -221,7 +221,7 @@
         "creditHours": 3,
         "studentWorkload": 11
       },
-      "prerequisites": ["gap121"],
+      "prerequisites": [],
       "description": "This course focuses on the concepts, principles, and terminology of data communication. Topics covered include analog and digital data transmission, transmission media, Modulation techniques. Data encoding, asynchronous and synchronous transmissions, USART, RS232-C, RS-449 standards. Data link configuration and control, error control, multiplexing and demultiplexing."
     },
     {
@@ -349,7 +349,7 @@
         "creditHours": 3,
         "studentWorkload": 20
       },
-      "prerequisites": ["completion_first_year"],
+      "prerequisites": [],
       "description": "In the Information Technology program of study, the motive is to train students with sufficient skills and knowledge required to strengthen their fundamentals both practically and theoretically. This course introduces students to the necessary basic skills and knowledge in the process of learning. It includes basic techniques and methods of investigation in the field. It aims at making students well versed in applied fields of training in industry-related area. The course is meant for students with little teaching and skill in learning to become industry ready. The course equips students with complete functional knowledge of the development of computer and IT applications."
     },
     {
@@ -397,7 +397,7 @@
         "creditHours": 3,
         "studentWorkload": 20
       },
-      "prerequisites": ["completion_second_year"],
+      "prerequisites": [],
       "description": "In the Information Technology program of study, the motive is to train students with sufficient skills and knowledge required to strengthen their fundamentals both practically and theoretically. This course is a follow up of the course ECT 191. It introduces students to the advanced skills and knowledge in the process of learning skills and knowledge. It includes advanced techniques and methods of investigation in the field. It aims at building the students’ experience in applied fields of industry-related area."
     }
   ]
